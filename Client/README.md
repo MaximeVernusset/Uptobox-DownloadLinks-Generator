@@ -1,4 +1,4 @@
-# Uptobox-Downloader - Client
+# Uptobox-DownloadLinks-Generator - Client
 
 ## Instructions
 

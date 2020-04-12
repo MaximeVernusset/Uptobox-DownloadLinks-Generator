@@ -1,4 +1,4 @@
-# Uptobox-Downloader - Web service
+# Uptobox-DownloadLinks-Generator - Web service
 
 ## Instructions
 
