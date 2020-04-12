@@ -1,3 +1,3 @@
-# Uptobox-Downloader
+# Uptobox-DownloadLinks-Generator
 
-Generate Uptobox download links.
+Web service to generate Uptobox download links.
