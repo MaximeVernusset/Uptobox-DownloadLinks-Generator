@@ -9,5 +9,10 @@ $users = array(
 	)
 );
 
+$downloadServers = array(
+	'name' => 'url'
+);
+
 define('USERS', $users);
+define('DOWNLOAD_SERVERS', $downloadServers);
 define('UPTOBOX_TOKEN', 'PASTE_YOUR_TOKEN'); // Token can be found on uptobox.com account settings

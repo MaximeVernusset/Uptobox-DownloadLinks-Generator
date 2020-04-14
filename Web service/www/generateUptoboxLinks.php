@@ -91,19 +91,37 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 			</ul>
 			<label for="downloadLinks">Raw:</label>
 			<textarea id="downloadLinks" rows="<?= $nbGeneratedLinks * 3 ?>" style="width:100%;"><?= join($generatedDownloadLinks, PHP_EOL) ?></textarea>
-			<script>
+		</section>
+<?php if (USERS[$user][CAN_DOWNLOAD]) { ?>
+		<section>
+			<h2>Download servers</h2>
+			<ul>
+	<?php
+	foreach (DOWNLOAD_SERVERS as $name => $url) {
+		echo '<li><a href="' . $url . '" target="_blank">' . $name . '</a></li>';
+	}
+	?>		
+			</ul>
+		</section>
+<?php } ?>
+		<section>
+			<h2 hidden>Toast</h2>
+			<div id="toast"></div>
+		</section>
+<?php } ?>
+		<script>
+			window.onload = () => {
 				const downloadLinks = document.getElementById('downloadLinks');
 				if (downloadLinks) {
 					downloadLinks.select();
 					downloadLinks.setSelectionRange(0, 99999);
 					if (document.execCommand('copy')) {
-						document.write('<span id="toast">Download links copied to clipboard</span>');
-						setTimeout(() => document.getElementById('toast').remove(), 2000);
+						document.getElementById('toast').innerHTML = '<p id="linksCopied"><em>Download links copied to clipboard</em></p>';
+						setTimeout(() => document.getElementById('linksCopied').remove(), 3000);
 					}
 				}
-			</script>
-		</section>
-<?php } ?>
+			}
+		</script>
 	</body>
 </html>
 
