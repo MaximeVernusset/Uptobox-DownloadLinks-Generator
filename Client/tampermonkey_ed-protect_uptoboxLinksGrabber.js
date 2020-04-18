@@ -34,7 +34,7 @@ async function generateToken() {
     'use strict';
     const links = [];
     for (let span of document.getElementsByClassName('lien')) {
-        links.push(span.firstChild.href);
+        links.push(encodeURI(span.firstChild.href));
     }
     if (links.length > 0) {
         generateToken().then(token => document.location=encoreURI(`${uptoboxLinksGeneratorUrl}?token=${token}&links=${JSON.stringify(links)}`));

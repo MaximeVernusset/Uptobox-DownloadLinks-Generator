@@ -48,7 +48,7 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 	foreach ($links as $link) {
 		$parsedUrl = parse_url($link);
         if (isset($parsedUrl[URL_PATH])) {
-			$fileCode = ltrim($parsedUrl[URL_PATH], '/');
+			$fileCode = ltrim(filter_var($parsedUrl[URL_PATH], FILTER_SANITIZE_URL), '/');
 			$uptoboxResponse = json_decode(file_get_contents(sprintf(UPTOBOX_API_URL, $fileCode)), true);
 			if ($uptoboxResponse[UPTOBOX_STATUS_CODE] == 0) {
 				$generatedDownloadLinks[] = $uptoboxResponse[UPTOBOX_DATA][UPTOBOX_DLLINK];
