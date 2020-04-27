@@ -36,11 +36,11 @@ if (isset($_POST[USER]) && isset($_POST[HASHED_PASSWORD]) && isset($_POST[LINKS]
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
-		<section id="form" class="container">
+		<section id="form" class="container" style="margin-top:10px">
 			<input type="text" id="<?=USER?>" class="form-control" placeholder="<?=USER?>"><br>
 			<input type="password" id="<?=PASSWORD?>" class="form-control" placeholder="<?=PASSWORD?>"><br>
 			<textarea cols="50" rows="7" id="<?=LINKS?>" class="form-control" placeholder="<?=LINKS?>"></textarea><br>
-			<input type="button" class="form-control" value="Post" onclick="post()">
+			<input type="button" class="btn btn-primary form-control" value="Post" onclick="post()">
 		</section>
 		<script>
 			async function post() {

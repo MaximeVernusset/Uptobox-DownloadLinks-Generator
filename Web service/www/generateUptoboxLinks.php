@@ -82,7 +82,7 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 <?php if ($nbErrors > 0) { ?>
 		<section class="container-fluid">
 			<h2>Errors:</h2>
-			<textarea id="errors" class="form-control" rows="<?= $nbErrors + 2 ?>" style="width:100%;"><?= json_encode($errors, JSON_PRETTY_PRINT) ?></textarea>
+			<textarea id="errors" class="form-control" rows="<?= $nbErrors + 2.5 ?>" style="width:100%;"><?= json_encode($errors, JSON_PRETTY_PRINT) ?></textarea>
 		</section>
 <?php } ?>
 <?php if ($nbGeneratedLinks > 0) { ?>
