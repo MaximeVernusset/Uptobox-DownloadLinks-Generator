@@ -18,7 +18,6 @@ if (isset($_POST[USER]) && isset($_POST[HASHED_PASSWORD]) && isset($_POST[LINKS]
 	);
 	$links = preg_split(SPLIT_REGEX, $_POST[LINKS]);
 	$linksGeneratorUrl = sprintf(LINKS_GENERATOR_URL, base64_encode(json_encode($token)), urlencode(json_encode($links)));
-	//header(REDIRECT_HEADER . $linksGeneratorUrl);
 	echo $linksGeneratorUrl;
 	
 } else {
@@ -28,13 +27,20 @@ if (isset($_POST[USER]) && isset($_POST[HASHED_PASSWORD]) && isset($_POST[LINKS]
 <html lang="en">
 	<head>
 		<title>Utpobox download links</title>
+		<meta charset="utf-8"/>
+		<meta name="author" content="Maxime Vernusset"/>
+		<meta name="copyright" content="Maxime Vernusset"/>
+		<meta name="language" content="en"/>
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
-		<section id="form">
-			<input type="text" id="<?=USER?>" placeholder="<?=USER?>"><br>
-			<input type="password" id="<?=PASSWORD?>" placeholder="<?=PASSWORD?>"><br>
-			<textarea cols="50" rows="7" id="<?=LINKS?>" placeholder="<?=LINKS?>"></textarea><br>
-			<input type="button" value="Post" onclick="post()">
+		<section id="form" class="container">
+			<input type="text" id="<?=USER?>" class="form-control" placeholder="<?=USER?>"><br>
+			<input type="password" id="<?=PASSWORD?>" class="form-control" placeholder="<?=PASSWORD?>"><br>
+			<textarea cols="50" rows="7" id="<?=LINKS?>" class="form-control" placeholder="<?=LINKS?>"></textarea><br>
+			<input type="button" class="form-control" value="Post" onclick="post()">
 		</section>
 		<script>
 			async function post() {

@@ -67,19 +67,26 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 <html lang="en">
 	<head>
 		<title>Utpobox download links</title>
+		<meta charset="utf-8"/>
+		<meta name="author" content="Maxime Vernusset"/>
+		<meta name="copyright" content="Maxime Vernusset"/>
+		<meta name="language" content="en"/>
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<style>
 			.hidden { visibility: hidden; }
 		</style>
 	</head>
 	<body>
 <?php if ($nbErrors > 0) { ?>
-		<section>
+		<section class="container-fluid">
 			<h2>Errors:</h2>
-			<textarea id="errors" rows="<?= $nbErrors + 2 ?>" style="width:100%;"><?= json_encode($errors, JSON_PRETTY_PRINT) ?></textarea>
+			<textarea id="errors" class="form-control" rows="<?= $nbErrors + 2 ?>" style="width:100%;"><?= json_encode($errors, JSON_PRETTY_PRINT) ?></textarea>
 		</section>
 <?php } ?>
 <?php if ($nbGeneratedLinks > 0) { ?>
-		<section>
+		<section class="container-fluid">
 			<h2>Download links:</h2>			
 			<ul>
 	<?php
@@ -90,10 +97,10 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 	?>
 			</ul>
 			<label for="downloadLinks">Raw:</label>
-			<textarea id="downloadLinks" rows="<?= $nbGeneratedLinks * 3 ?>" style="width:100%;"><?= join($generatedDownloadLinks, PHP_EOL) ?></textarea>
+			<textarea id="downloadLinks" class="form-control" rows="<?= $nbGeneratedLinks * 2 ?>" style="width:100%;"><?= join($generatedDownloadLinks, PHP_EOL) ?></textarea>
 		</section>
 <?php if (USERS[$user][CAN_DOWNLOAD]) { ?>
-		<section>
+		<section class="container-fluid">
 			<h2>Download servers</h2>
 			<ul>
 	<?php
@@ -104,7 +111,7 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 			</ul>
 		</section>
 <?php } ?>
-		<section>
+		<section class="container-fluid">
 			<h2 hidden>Toast</h2>
 			<div id="toast"></div>
 		</section>
