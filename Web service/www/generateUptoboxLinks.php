@@ -76,6 +76,7 @@ if (isset($_GET[TOKEN]) && isset($_GET[LINKS]) && authorizeUser(json_decode(base
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<style>
 			.hidden { visibility: hidden; }
+			section { padding-top: 10px; padding-bottom: 10px; }
 		</style>
 	</head>
 	<body>
